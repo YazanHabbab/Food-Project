@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>Meals</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./myfunctions.js" defer></script>
+</head>
+<body>
+<header>
+  <nav class="container">
+    <a href="./home.html">الرئيسية</a>
+    <a href="./aboutus.html">من نحن</a>
+    <a href="./meals.html">الوجبات</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>قائمة الوجبات</h1>
+
+  <table class="table-meals" aria-describedby="meals-desc">
+    <caption id="meals-desc" style="text-align:left; padding:8px 0;">اختر الوجبات التي تريدها ثم اضغط متابعة لملء نموذج الطلب.</caption>
+    <thead>
+      <tr><th>الرمز</th><th>الوجبة</th><th>السعر</th><th>إظهار التفاصيل</th><th>اختيار</th></tr>
+    </thead>
+    <tbody id="mealsTableBody"></tbody>
+  </table>
+
+  <div style="margin-top:12px;">
+    <button id="continueBtn" class="btn">متابعة</button>
+  </div>
+
+  <div id="formContainer" style="margin-top:20px;"></div>
+</main>
+
+<footer>
+  &copy; 2026 مشروع طلب وجبات
+</footer>
+</body>
+</html>

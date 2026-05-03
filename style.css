@@ -1,0 +1,50 @@
+:root{
+  --main-font: "Tajawal", "Arial", sans-serif;
+  --accent: #d9534f;
+  --bg: #f8f9fa;
+  --text: #222;
+  --input-bg: #fff;
+  --input-border: #ccc;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: var(--main-font);
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  padding:0;
+  line-height:1.4;
+  direction:rtl;
+}
+header, nav{background:#fff; border-bottom:1px solid #e6e6e6; padding:12px 20px;}
+.container{max-width:1000px; margin:20px auto; padding:0 15px;}
+nav a{margin-left:12px; color:var(--accent); text-decoration:none; font-weight:600;}
+h1,h2{color:var(--accent); margin:8px 0;}
+.table-meals{width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.05);}
+.table-meals th, .table-meals td{padding:10px; border:1px solid #eee; text-align:right; vertical-align:top;}
+.meal-img{width:80px; height:60px; object-fit:cover; border-radius:6px; margin-left:8px; vertical-align:middle;}
+.details-row{background:#fcfcfc; color:#333; font-size:0.95em;}
+.btn{display:inline-block; padding:8px 12px; background:var(--accent); color:#fff; border-radius:6px; text-decoration:none; cursor:pointer; border:none;}
+.btn.secondary{background:#6c757d;}
+.form-input{display:block; width:100%; padding:8px; border:1px solid var(--input-border); border-radius:6px; background:var(--input-bg); margin-bottom:10px;}
+.form-label{font-weight:700; margin-bottom:6px; display:block;}
+.form-row{margin-bottom:12px;}
+footer{padding:12px 20px; text-align:center; color:#666; font-size:0.9em;}
+
+/* تفاصيل داخل الخلية */
+.details-row td{font-size:0.95em; line-height:1.5;}
+.meal-details strong{color:var(--accent); display:inline-block; width:80px; text-align:right;}
+.meal-details em{display:block; margin-top:6px; color:#555;}
+
+/* تنسيق النموذج */
+#orderForm{background:#fff; padding:14px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+#orderForm h2{margin-top:0;}
+
+/* Responsive */
+@media (max-width:700px){
+  .meal-img{width:60px; height:45px;}
+  nav a{display:block; margin:6px 0;}
+  .meal-details strong{display:block; width:auto; margin-bottom:6px;}
+}
+
