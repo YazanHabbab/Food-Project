@@ -154,3 +154,10 @@ footer {
     margin-bottom: 6px;
   }
 }
+
+footer {
+  position: sticky;
+  bottom: 0;
+  background-color: #EEE;
+  width: 100%;
+}
