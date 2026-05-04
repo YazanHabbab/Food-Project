@@ -1,6 +1,5 @@
 // myfunctions.js - يستخدم jQuery
-$(document).ready(function(){
-
+$(document).ready(function () {
   const meals = [
     {
       code: "SF-001",
@@ -8,11 +7,15 @@ $(document).ready(function(){
       price: 110000,
       img: "images/sf001.jpg",
       details: {
-        ingredients: ["4 سمكات بوري أحمر مغسولة ومنظفة", "أوراق أوريجانو طازجة", "ملح وفلفل أسود"],
+        ingredients: [
+          "4 سمكات بوري أحمر مغسولة ومنظفة",
+          "أوراق أوريجانو طازجة",
+          "ملح وفلفل أسود",
+        ],
         weight: "حوالي 900 غرام (لشخصين)",
         sauces: ["صلصة ليمون وزيت زيتون", "صلصة ثوم خفيفة"],
-        notes: "تُقدّم مع شرائح ليمون وبقدونس مفروم"
-      }
+        notes: "تُقدّم مع شرائح ليمون وبقدونس مفروم",
+      },
     },
     {
       code: "SF-002",
@@ -23,8 +26,8 @@ $(document).ready(function(){
         ingredients: ["لحم غنم مفروم متبل", "بصل مفروم", "توابل خاصة"],
         weight: "حوالي 600 غرام",
         sauces: ["صلصة طحينة", "صلصة حارة اختيارية"],
-        notes: "تُقدّم مع خبز عربي وسلطة"
-      }
+        notes: "تُقدّم مع خبز عربي وسلطة",
+      },
     },
     {
       code: "SF-003",
@@ -35,8 +38,8 @@ $(document).ready(function(){
         ingredients: ["عجينة بيتزا", "صلصة طماطم", "جبنة موزاريلا"],
         weight: "حوالي 500 غرام",
         sauces: ["زيت زيتون بلمسة ريحان"],
-        notes: "مناسبة لشخصين"
-      }
+        notes: "مناسبة لشخصين",
+      },
     },
     {
       code: "SF-004",
@@ -44,11 +47,16 @@ $(document).ready(function(){
       price: 25000,
       img: "images/sf004.jpg",
       details: {
-        ingredients: ["خس روماني", "قطع دجاج مشوي", "خبز محمص", "جبنة بارميزان"],
+        ingredients: [
+          "خس روماني",
+          "قطع دجاج مشوي",
+          "خبز محمص",
+          "جبنة بارميزان",
+        ],
         weight: "حوالي 300 غرام",
         sauces: ["صلصة سيزر الكريمية"],
-        notes: "خيار صحي وخفيف"
-      }
+        notes: "خيار صحي وخفيف",
+      },
     },
     {
       code: "SF-005",
@@ -59,20 +67,21 @@ $(document).ready(function(){
         ingredients: ["برغر لحم 150غ", "جبنة شيدر", "خبز برغر", "بطاطا مقلية"],
         weight: "حوالي 450 غرام",
         sauces: ["كاتشب", "مايونيز", "صلصة خاصة"],
-        notes: "يُقدّم مع مخللات"
-      }
-    }
+        notes: "يُقدّم مع مخللات",
+      },
+    },
   ];
 
   // توليد جدول الوجبات مع حماية من التكرار
-  if($("#mealsTableBody").length){
+  if ($("#mealsTableBody").length) {
     let tbody = $("#mealsTableBody");
-    tbody.empty();                 // يزيل أي محتوى سابق داخل tbody
-    if (tbody.data('filled')) {    // إذا امتلأ سابقاً لا نعيد الملء
+    tbody.empty(); // يزيل أي محتوى سابق داخل tbody
+    if (tbody.data("filled")) {
+      // إذا امتلأ سابقاً لا نعيد الملء
       return;
     }
 
-    meals.forEach((m, idx)=>{
+    meals.forEach((m, idx) => {
       // تأكد من عرض اسم الوجبة مرة واحدة فقط: نعرض الصورة ثم العنوان النصي
       let mealCell = `<div style="display:flex; align-items:center; justify-content:flex-end;">
                         <span style="display:inline-block; text-align:right;">${m.title}</span>
@@ -80,9 +89,9 @@ $(document).ready(function(){
                       </div>`;
 
       let detailsHtml = `<div class="meal-details" dir="rtl">
-        <div><strong>المكونات:</strong> ${m.details.ingredients.join(' • ')}</div>
+        <div><strong>المكونات:</strong> ${m.details.ingredients.join(" • ")}</div>
         <div><strong>الوزن:</strong> ${m.details.weight}</div>
-        <div><strong>الصوصات:</strong> ${m.details.sauces.join(' • ')}</div>
+        <div><strong>الصوصات:</strong> ${m.details.sauces.join(" • ")}</div>
         <em>${m.details.notes}</em>
       </div>`;
 
@@ -99,23 +108,23 @@ $(document).ready(function(){
       tbody.append(row);
     });
 
-    tbody.data('filled', true); // علم أن tbody قد امتلأ
+    tbody.data("filled", true); // علم أن tbody قد امتلأ
   }
 
   // إظهار/إخفاء التفاصيل
-  $(document).on('change', '.show-details', function(){
-    let idx = $(this).data('idx');
-    $("#details-"+idx).toggle(this.checked);
+  $(document).on("change", ".show-details", function () {
+    let idx = $(this).data("idx");
+    $("#details-" + idx).toggle(this.checked);
   });
 
   // متابعة: إظهار نموذج الطلب
-  $("#continueBtn").on('click', function(e){
+  $("#continueBtn").on("click", function (e) {
     e.preventDefault();
     let selected = [];
-    $(".select-meal:checked").each(function(){
-      selected.push(meals[$(this).data('idx')]);
+    $(".select-meal:checked").each(function () {
+      selected.push(meals[$(this).data("idx")]);
     });
-    if(selected.length === 0){
+    if (selected.length === 0) {
       alert("الرجاء اختيار وجبة واحدة على الأقل قبل المتابعة.");
       return;
     }
@@ -130,16 +139,18 @@ $(document).ready(function(){
       <button id="cancelOrder" class="btn secondary">إلغاء</button>
       </div>`;
     $("#formContainer").html(formHtml);
-    $("#formContainer").data('selected', selected);
+    $("#formContainer").data("selected", selected);
   });
 
   // إلغاء
-  $(document).on('click', '#cancelOrder', function(){ $("#formContainer").empty(); });
+  $(document).on("click", "#cancelOrder", function () {
+    $("#formContainer").empty();
+  });
 
   // إرسال الطلب والتحقق
-  $(document).on('click', '#submitOrder', function(e){
+  $(document).on("click", "#submitOrder", function (e) {
     e.preventDefault();
-    let selected = $("#formContainer").data('selected') || [];
+    let selected = $("#formContainer").data("selected") || [];
     let name = $("#fullName").val().trim();
     let nid = $("#nationalId").val().trim();
     let birth = $("#birthDate").val().trim();
@@ -148,37 +159,115 @@ $(document).ready(function(){
 
     // اسم عربي فقط
     let nameRe = /^[\u0600-\u06FF\s]+$/;
-    if(name && !nameRe.test(name)){ alert("الاسم يجب أن يحتوي حروف عربية فقط."); return; }
+    if (name && !nameRe.test(name)) {
+      alert("الاسم يجب أن يحتوي حروف عربية فقط.");
+      return;
+    }
 
     // الرقم الوطني 11 خانة وبداية 01-14
     let nidRe = /^(0[1-9]|1[0-4])\d{9}$/;
-    if(!nidRe.test(nid)){ alert("الرقم الوطني غير صحيح. يجب أن يكون 11 خانة والبداية ترمز للمحافظة."); return; }
+    if (!nidRe.test(nid)) {
+      alert(
+        "الرقم الوطني غير صحيح. يجب أن يكون 11 خانة والبداية ترمز للمحافظة.",
+      );
+      return;
+    }
 
     // تاريخ dd-mm-yyyy
     let dateRe = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d{2}$/;
-    if(birth && !dateRe.test(birth)){ alert("تاريخ الولادة يجب أن يكون بالشكل dd-mm-yyyy."); return; }
+    if (birth && !dateRe.test(birth)) {
+      alert("تاريخ الولادة يجب أن يكون بالشكل dd-mm-yyyy.");
+      return;
+    }
 
     // موبايل Syriatel أو MTN (093|094|095)
     let mobileRe = /^(09[3-5])\d{7}$/;
-    if(mobile && !mobileRe.test(mobile)){ alert("رقم الموبايل غير مطابق لشبكات Syriatel أو MTN."); return; }
+    if (mobile && !mobileRe.test(mobile)) {
+      alert("رقم الموبايل غير مطابق لشبكات Syriatel أو MTN.");
+      return;
+    }
 
     // إيميل
     let emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(email && !emailRe.test(email)){ alert("صيغة الإيميل غير صحيحة."); return; }
+    if (email && !emailRe.test(email)) {
+      alert("صيغة الإيميل غير صحيحة.");
+      return;
+    }
 
     // حساب المجموع والضريبة (تُضاف 5%)
-    let subtotal = selected.reduce((s, it)=> s + it.price, 0);
+    let subtotal = selected.reduce((s, it) => s + it.price, 0);
     let tax = Math.round(subtotal * 0.05);
     let total = subtotal + tax;
 
     // عرض نافذة تحتوي التفاصيل
     let details = "الوجبات المختارة:\n";
-    selected.forEach(it => { details += `${it.code} - ${it.title} - ${it.price.toLocaleString()} ل.س\n`; });
+    selected.forEach((it) => {
+      details += `${it.code} - ${it.title} - ${it.price.toLocaleString()} ل.س\n`;
+    });
     details += `\nالمجموع: ${subtotal.toLocaleString()} ل.س\nالضريبة 5%: ${tax.toLocaleString()} ل.س\nالمبلغ النهائي: ${total.toLocaleString()} ل.س\n`;
     alert(details);
 
     // مسح النموذج بعد الإرسال
     $("#formContainer").empty();
   });
-
 });
+
+// home page students section
+const students = [
+  {
+    AName: "علي يوسف",
+    EName: "Ali Youssef",
+    Id: "ali_203985",
+    Class: "C2",
+    Teacher: "الدكتور غيث",
+  },
+  {
+    AName: "محمد سليمان الخليفو",
+    EName: "Mohammad Sulayman Alkhaleefu",
+    Id: "mohammed_343490",
+    Class: "C3",
+    Teacher: "الدكتور غيث",
+  },
+  {
+    AName: "عبد العظيم الغميس",
+    EName: "Abdelazim Alghmis",
+    Id: "abdlazim_345933",
+    Class: "C4",
+    Teacher: "الدكتور ضياء",
+  },
+  {
+    AName: "شام قيسر",
+    EName: "Sham Qaisar",
+    Id: "Sham_302899",
+    Class: "C2",
+    Teacher: "الدكتور غيث",
+  },
+  {
+    AName: "مهند ياسين بريك",
+    EName: "Mohannad Breik",
+    Id: "mohannad_245794",
+    Class: "C3",
+    Teacher: "الدكتور غيث",
+  },
+  {
+    AName: "محمد يزن محمد زاهر حباب",
+    EName: "Mohammad Yazan Mohammad Zaher Habab",
+    Id: "Mohammad_Yazan_387446",
+    Class: "C6",
+    Teacher: "الدكتور مازن",
+  },
+];
+
+students.forEach((student) => {
+  let studentTBody = $("#studentsTableBody");
+  let row = `<tr>
+        <td>${student.AName}</td>
+        <td>${student.EName}</td>
+        <td>${student.Id}</td>
+        <td>${student.Class}</td>
+        <td>${student.Teacher}</td>
+      </tr>`;
+  studentTBody.append(row);
+});
+
+studentTBody.data("filled", true);
