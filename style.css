@@ -20,11 +20,16 @@ body {
   direction: rtl;
   padding-bottom: 45px;
 }
+header {
+  box-shadow: 1px 1px 3px 1px var(--accent);
+  line-height: 0.1;
+}
 header,
 nav {
   background: #fff;
-  border-bottom: 1px solid #e6e6e6;
   padding: 12px 20px;
+  display: flex;
+  font-size: 25px;
 }
 .container {
   max-width: 1000px;
@@ -32,7 +37,7 @@ nav {
   padding: 0 15px;
 }
 nav a {
-  margin-left: 12px;
+  margin-left: 35px;
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
