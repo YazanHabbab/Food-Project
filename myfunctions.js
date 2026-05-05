@@ -215,8 +215,8 @@ $(document).ready(function () {
 // home page students section
 const students = [
   {
-    AName: "علي يوسف",
-    EName: "Ali Youssef",
+    AName: "علي لقمان يوسف",
+    EName: "Ali Lokman Youssef",
     Id: "ali_203985",
     Class: "C2",
     Teacher: "الدكتور غيث",
@@ -229,29 +229,29 @@ const students = [
     Teacher: "الدكتور غيث",
   },
   {
-    AName: "عبد العظيم الغميس",
-    EName: "Abdelazim Alghmis",
+    AName: "عبد العظيم محمد نعمان الغميس",
+    EName: "Abdelazim Mohamad Noman Alghmis",
     Id: "abdlazim_345933",
     Class: "C4",
     Teacher: "الدكتور ضياء",
   },
   {
-    AName: "شام قيسر",
-    EName: "Sham Qaisar",
+    AName: "شام صياح قيسر",
+    EName: "Sham Siyah Qaisar",
     Id: "Sham_302899",
     Class: "C2",
     Teacher: "الدكتور غيث",
   },
   {
     AName: "مهند ياسين بريك",
-    EName: "Mohannad Breik",
+    EName: "Mohannad Yaseen Breik",
     Id: "mohannad_245794",
     Class: "C3",
     Teacher: "الدكتور غيث",
   },
   {
     AName: "محمد يزن محمد زاهر حباب",
-    EName: "Mohammad Yazan Mohammad Zaher Habab",
+    EName: "Mohammad Yazan Mohammad Zaher Habbab",
     Id: "Mohammad_Yazan_387446",
     Class: "C6",
     Teacher: "الدكتور مازن",
